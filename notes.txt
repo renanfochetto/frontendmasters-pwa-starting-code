@@ -1,0 +1,87 @@
+PWA - MAXIMILIAN FIRTMAN - FRONTEND MASTERS
+
+- O que é uma PWA?
+    - É um padrão de design para usar diferentes APIs e Specs da plataforma web, para criar instaláveis,
+    offline-capable standalone apps for mobile and desktop devices.
+
+- É o padrão ideal para todos os Apps que tem como única finalidade consumir conteúdo web e web services.
+
+- PWA não é uma API, não é um framework, é somente um termo para descrever um padrão de design.
+
+- Qualquer site pode ser transformado em uma PWA, desde que siga as especificações do padrão.
+
+- Algumas vantagens de PWA:
+    - Funciona offline;
+    - Instalação em tela inicial;
+    - Notificações push;
+    - Acesso a hardware (câmera, microfone, etc);
+    - Melhor performance;
+    - Experiência de usuário similar a apps nativos;
+    - Fácil de atualizar;
+    - Fácil para deployar;
+    - Performance e UX melhoradas;
+    - Integração com o sistema operacional.
+
+- Sobre o estado geral das PWAs:
+    - Todos os browsers já suportam PWAs;
+    - No android está disponível em todos os browsers;
+    - No iOS, Safari é o único browser que suporta PWAs, mas com algumas limitações. Porque todos os outros
+    browsers no IOS são basicamente outras versões do Safari;
+    - No HarmonyOS, PWAs são suportadas nativamente;
+    - No Meta Horizon, PWAs são suportadas nativamente. A única diferença é que não é instalado pelo browser, e sim
+    pela Meta Store;
+    - Já em Desktop, no MacOs temos o Safari, o Chrome e o Edge que suportam PWAs.
+    - No Linux, Chrome e Edge suportam PWAs;
+    - No Windows, Chrome, Edge e Firefox suportam PWAs;
+    - No ChromeOS, Chrome e Edge suportam PWAs;
+
+- Starbucks, Tinder e Trivago são exemplos de empresas que possuem PWAs.
+
+- Uma outra vantagem de PWA é a dificuldade existente quando é necessário deployar um app nativo, que é muito mais
+complexo do que deployar uma PWA, que é basicamente um site. Além disso, o processo de atualização de uma PWA é muito
+mais simples, pois não é necessário passar por uma loja de apps, como a Play Store ou App Store.
+
+- Existem alguns browsers que não suportam PWAs:
+    - No desktop temos o Firefox;
+    - visionOS também não suporta;
+    - Android WebView(Instagram, TikTok, etc);
+    - iOS WebView(Instagram, TikTok,etc);
+    - watchOS;
+    - tvOS;
+    - Android TV;
+
+- Existem alguns critérios para que um PWA seja instalado nas diferentes plataformas, no Safari no IOS e no iPadOS, são:
+    - Nome dos App's;
+    - Ícones;
+    - Start URL;
+    - Modo Display;
+
+- Já no Safari no macOS não existem requerimentos.
+
+- No IOS, qualquer PWA que você instale é atualmente uma 'sandbox', ou seja, o aplicativo é completamente desvinculado
+do Safari.
+
+- No Chromium, os critérios são:
+    - o Web App não pode estar instalado;
+    - Que use HTTPS;
+    - Que tenha algumas vinculações heurísticas;
+    - Que inclua metadados como:
+        - Nome do App;
+        - Ícones;
+        - Uma URL de início;
+        - Modo Display;
+
+- Já no Firefox, os critérios são (somente no Android):
+    - o Web App não pode estar instalado;
+    - Que use HTTPS;
+    - Que inclua metadados como:
+        - Nome do App;
+        - Ícones;
+        - Uma URL de início;
+        - Modo Display;
+
+- Existe também um Warning no mobile que é, se você não seguir os critérios básicos, a instalação standalone não irá
+acontecer.
+
+- Já no desktop existem algumas formas de instalar como um Web App;
+
