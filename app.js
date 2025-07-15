@@ -18,8 +18,24 @@ document.addEventListener("DOMContentLoaded", event => {
 
     document.querySelector("#btnLearn").addEventListener("click", event => {
         location.href = "https://frontendmasters.com";
+    });
+
+    document.getElementById("btnInstall").addEventListener("click", event => {
+        if (bipEvent) {
+            bipEvent.prompt();
+        } else {
+            alert("Sorry, you can't install the app right now.");
+        }
     })
 })
+
+let bipEvent = null;
+
+window.addEventListener("beforeinstallprompt", event => {
+    document.querySelector("#btnInstall").hidden = false;
+    event.preventDefault();
+    bipEvent = event;
+});
 
 // Render the notes on the DOM
 function renderNotes() {

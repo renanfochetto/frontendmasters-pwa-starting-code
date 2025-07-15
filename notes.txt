@@ -85,3 +85,278 @@ acontecer.
 
 - Já no desktop existem algumas formas de instalar como um Web App;
 
+- Um problema que poderia surgir quando estivermos no processo de desenvolvimento é o fato de um dos critérios ser a
+utilização de HTTPS, o que seria impossível de cumprir quando rodado localmente, assim então, existe uma exceção a essa
+regra que é o uso de localhost, ou seja, PWA's precisam de HTTPS, mas quando usadas localmente, o localhost pode servir
+como exceção para que a regra seja cumprida.
+
+- No DevTools existe uma aba chamada 'Application', essa aba é uma das grandes ferramentas que podem ajudar no process
+de criação e desenvolvimento de uma PWA.
+
+- O Arquivo Manifest é o arquivo que define se os critérios estão sendo atendidos ou não para que uma PWA seja instalada,
+se os critérios não forem atendidos significa que não temos uma PWA.
+
+- Outro jeito de saber se é uma PWA ou não é a utilização de LightHouse, pois ele permite que se crie um report para
+que você possa utilizar para monitorar a performance.
+
+- A metatag viewport foi criada pela Apple, e é uma metatag que define como o conteúdo deve ser exibido em dispositivos
+móveis, ela é uma metatag que deve ser utilizada em todos os sites, pois ela define o tamanho da tela do dispositivo
+e como o conteúdo deve ser exibido, além disso, ela também é utilizada para definir o zoom do conteúdo.
+
+- O Arquivo Manifest pode ser considerado como o core ou o núcleo de uma PWA, ele é um arquivo JSON que define todos
+os metadados necessários para que uma PWA seja instalado e integrado ao sistema operacional.
+
+- Muitos autores definem o Manifest como um arquivo JSON, mas na verdade a recomendação é que para que se uma extensão
+.webmanifest.
+
+- Também é necessário linká-lo no HTML, para que o browser possa encontrá-lo e utilizá-lo.
+
+- O link fica dessa forma: "<link rel="manifest" href="web.manifest">", onde o href é o caminho do arquivo Manifest.
+
+- Você pode ter mais um PWA na mesma origem, se você apontar para diferentes Web App Manifests. É recomendado que vocês
+os armazene em pastas diferentes. Isso habilita o padrão arquitetural de micro-app.
+
+- O autor cita que seria possível, em um exemplo dado, ter várias instâncias de uma PWA diferente para cada produto
+ou ideia específica, ele cita o caso de uma máquina de refrigerante, que poderia ter uma PWA para cada máquina,
+funcionando como se fosse uma nova instância de uma PWA, mas com o mesmo código base. Sendo possível diferenciar e
+monitorar dados e informações de cada uma das máquinas.
+
+
+SOBRE O ARQUIVO MANIFEST
+
+- O arquivo pode ter qualquer nome, mas geralmente é chamado como app.webmanifest ou manifest.webmanifest.
+
+- A primeira propriedade do arquivo deve ser a propriedade ID, que é a propriedade que define a ID do PWA,
+ela deve ser única.
+
+- A propriedade start_url é a URL que será aberta quando o PWA for iniciado, ela deve ser uma URL absoluta,
+ou seja, deve conter o protocolo (http:// ou https://).
+
+- Essas propriedades funcionam meio que a origem inicial de onde irá ser iniciada a instalação do PWA, assim, caso
+esteja simplesmente navegando em outras telas, o PWA será instalada a partir da URL definida na propriedade start_url.
+
+- Já as propriedades name e short_name são utilizadas para definir o nome do PWA, o name é o nome completo do PWA,
+enquanto o short_name é o nome curto que será exibido na tela inicial do dispositivo. O name pode ser usado como atributo
+alt em algumas situações, já sobre o short_name é recomendado que tenha no máximo 12 caracteres, pois é o que cabe
+na tela inicial do dispositivo.
+
+- A propriedade theme_color é utilizada para definir a cor do tema do PWA, ela deve ser uma cor hexadecimal, RGB ou
+RGBA, e é utilizada para definir a cor da barra de status do PWA, além de outras partes da interface do usuário. Ela pode
+definir também a cor de fundo do ícone do PWA, que é o ícone que será exibido na tela inicial do dispositivo. No Android,
+a cor geralmente é atualizada rapidamente, já no IOS é necessário deletar o PWA e reinstalá-lo para que a cor seja
+atualizada.
+
+- Não existe um jeito padrão para internacionalizar o PWA usando o manifest. Você pode linkar com muitos outros manifests
+ou criar um manifest dinamicamente do servidor.
+
+- Sobre display modes, vejamos as diferentes opções:
+    - browser: é o modo padrão, onde o PWA é aberto em uma nova aba do navegador;
+    - standalone: é o modo onde o PWA é aberto como um aplicativo independente, sem a barra de endereços do navegador;
+    - fullscreen: é o modo onde o PWA é aberto em tela cheia, sem nenhuma interface do usuário do navegador (funciona
+    somente no Android);
+    - minimal-ui: é o modo onde o PWA é aberto com uma interface mínima do usuário, sem a barra de endereços do navegador
+    (funciona somente no Android);
+
+- Já em um spec separado, nos podemos ter:
+    - tabbed: é o modo onde o PWA é aberto em uma aba do navegador, mas com uma interface de usuário mínima;
+    - window-controls-overlay: é o modo onde o PWA é aberto com uma interface de usuário mínima, mas com os controles
+    de janela sobrepostos, ou seja, os controles de fechar, minimizar e maximizar são sobrepostos ao conteúdo do PWA.
+    - Os dois modos acima não estão disponíveis no Mobile, somente no Desktop.
+
+    - Para uma melhor compatibilidade você pode usar um modo padrão na propriedade display e outros modos na propriedade
+    display_override, que é uma propriedade que permite que você defina modos de exibição adicionais para o PWA.
+        Ex: "display_override": ["tabbed"];
+
+ - Sobre os ícones, eles são utilizados para definir os ícones do PWA, que serão exibidos na tela inicial do dispositivo,
+na barra de status do PWA e em outras partes da interface do usuário. Eles devem ser imagens no formato PNG, SVG ou
+WebP, e devem ter tamanhos diferentes para serem exibidos em diferentes dispositivos. É recomendado que você tenha
+ícones com tamanhos de 192x192px e 512x512px, pois são os tamanhos mais comuns utilizados pelos sistemas operacionais.
+
+- É uma propriedade que leva um array de objetos, as prorpriedades dos objetos são:
+    - src: que é o source, ou o caminho até a imagem do ícone;
+    - sizes: que é o tamanho do ícone, pode ser como os recomendados 192x192px, 512x512px e 1024X1024px.
+    - type: que é o tipo da imagem, pode ser image/png, image/svg+xml ou image/webp;
+    - purpose: que é o propósito do ícone, pode ser qualquer um dos seguintes valores:
+        - any: que significa que o ícone pode ser usado em qualquer lugar;
+        - maskable: que significa que o ícone pode ser usado como uma máscara, ou seja, o ícone será recortado
+        para se ajustar ao formato do dispositivo;
+        - badge: que significa que o ícone será usado como um badge, ou seja, um pequeno ícone que será exibido
+        na tela inicial do dispositivo;
+        - monogram: que significa que o ícone será usado como um monograma, ou seja, um pequeno ícone com as iniciais
+        do PWA.
+
+- Para cada tamanho diferente de ícone, um objeto com todas essas propriedades são gerados.
+
+- Sobre Splash Screens, no Android:
+    - Elas são geradas automaticamente;
+    - Você não pode prover sua própria imagem;
+    - Eles usam a metadata do Web App Manifest;
+
+- Sobre Splash Screens, no iOS:
+    - O Safari não usa os metadados do Web App Manifest;
+    - Ele permite criarmos nossa própria imagem estática;
+    - São conhecidas como StartUp Images;
+    - São definidas a partir do link "<link>";
+    - Devemos usar a depreciada meta tag;
+    - O ponto de atenção é que ela deve ser exatamente do tamanho da tela do dispositivo:
+        - O grande problema é que existem inúmeros diferentes tipos de telas para o iphone, mas é possível uma divisão
+        por grupos, são eles:
+            - iPhone SE;
+            - iPhone 7, 8, SE 2nd edition;
+            - iPhone X, XS, 11pro, 12pro, 13pro, 14pro, 15pro;
+            - iPhone XR, 11, 12, 13;
+            - iPhone 7 Plus, 8 Plus;
+            - iPhone X Max, XS Max, 11 Pro Max, 12 Pro Max, 13 Pro Max, 14 Pro Max, 15 Pro Max;
+
+            Já para formato Paisagem tempos apenas dois grupos:
+
+            - iPhone 7 Plus, 8 Plus;
+            - iPhone X Max, XS Max, 11 Pro Max, 12 Pro Max, 13 Pro Max, 14 Pro Max, 15 Pro Max;
+
+        - O maior problema é para IPads, pois existem inúmeros tipos de IPads disponíveis, todos com modo Retrato e
+        Paisagem, também com Split View, Side View e de diversos tamanhos.
+
+        - Esse é o grande problema, pois desse jeito seria necessário criar mais de 20 tamanhos diferentes.
+
+        - A Propriedade size é ignorada também, devemos usar media queries para fazer as adaptações;
+
+    - Para esse problema então temos duas soluções, uma é o uso do PWA Static Asset Generator, disponível apenas no NPM:
+        - Executa a linha de comando, dfien algumas regras e ele gera todas as imagens necessárias;
+
+    - A outra solução é o Client Side Generator, usando a tag canvas "<canvas>" e então converte para Data Url e depois
+    injeta no HTML e assim o problema fica resolvido.
+
+    - Caso não queira fazer isso manualmente, existe uma biblioteca chamada PWACompat, que é uma biblioteca que
+    permite que você crie uma PWA compatível com todos os navegadores, ela é uma biblioteca que deve ser incluída no
+    HTML e ela irá fazer o trabalho de compatibilidade para você, mas ela não é recomendada, pois ela é uma
+    biblioteca que não é mantida e pode não funcionar em todos os navegadores, além disso, ela pode aumentar o tamanho
+    do seu PWA, o que pode ser um problema para dispositivos móveis:
+
+        - É uma biblioteca open source do Chrome;
+        - Ela peg a o App Manifest e gera assets para outros browsers;
+        - Também gera assets padrão para Apple's, incluindo startup imagens diretamente com Javascript;
+        - Atualmente ela emula as Splash Screens do Android e do Ios;
+
+- Disponibilizar a PWA offline não é obrigatório, é útil, mas não é obrigatório.
+
+- O que é um Service Worker?
+    - É um arquivo Javascript, rodando em sua própria thread que vai agir como um middleware oferecendo um web server
+    ou web proxy instalado localmente para o nosso PWA, incluindo recursos e chamadas para APIs;
+    - Roda no lado do cliente, no motor do browser;
+    - Precisa de HTTPS;
+    - É instalado por uma web page.
+    - Possui sua própria thread e ciclo de vida;
+    - Ele funciona como um network proxy ou web server local em nome do servidor real;
+    - É habilitado para rodar em segundo plano;
+    - Não precisa de permissão do usuário;
+    - É um padrão de design que permite que você crie uma PWA offline-capable;
+
+- Sobre notificações push web:
+    - Safari e IOS não suportam web push notifications, a não ser que você instale o PWA;
+    - Se você instalar o PWA, a versão instalada do PWA sim pode requerer permissão para enviar notificações push;
+
+- Sobre Service Workers e Escopos:
+    - Administra todas as páginas no browser e instaladas no dispositivos a partir do mesmo escopo;
+    - É instalada por qualquer página no escopo;
+    - Depois de instalada, pode servir todos os arquivos solicitados a partir do escopo;
+    - Somente um Service Worker é permitido;
+    - WebKit adiciona gerenciamento de partição.
+
+- Uma curiosidade é que os Service Workers, não podem ser executados por si mesmos, é necessário que o usuário visite
+ou abra alguma página, ou algum direcionamento que solicite a execução do Service Worker, essa foi uma maneira de contornar
+potenciais problemas de segurança que pudessem aconteçer;
+
+- Já para criar Service Workers, temos alguns passos:
+    - Cachear os recursos necessários;
+    - Podemos cachear todos ou somente alguns recursos;
+    - Tudo é basedo em Javascript Promises;
+    - É necessário o prefetch na instalação do Service Worker;
+    - Cachear na requisição;
+    - App Shell pattern;
+    - O Service Worker responderá qualquer requisição que o PWA faça;
+
+- Existem algumas estratégias de cache que podem ser utilizadas, são elas: Cache First, Network First, Stale while Revalidate:
+    - Cache First: O Service Worker irá primeiro verificar se o recurso está no cache, se estiver, ele irá retornar
+    o recurso do cache, caso contrário, ele irá buscar o recurso na rede e armazená-lo no cache para futuras requisições;
+    - Network First: O Service Worker irá primeiro buscar o recurso na rede, se a requisição falhar, ele irá buscar
+    o recurso no cache;
+    - Stale while Revalidate: O Service Worker irá retornar o recurso do cache imediatamente, enquanto busca o recurso
+    atualizado na rede em segundo plano e atualiza o cache.
+
+- Evite a seleção de conteúdo, geralmente usamos user-select para desabilitar a seleção nos elementos de UI. Porém, é
+necessário usar com cautela.
+
+- É necessário calcular as safe-areas para uma melhor disposição dos conteúdos na tela, como, por exemplo, colocar algum
+tipo de ação em uma área na qual deveriam ficar os botões de navegação do próprio sistema operacional.
+
+- Isso pode ser feito através da função env(), que é uma função CSS que permite que você acesse as variáveis de ambiente
+do sistema operacional, juntamente com quatro outras variáveis dentro da função env().
+
+- Um dos problemas comuns com o safe-areas é na utilização do dispositivo em formato landscape, onde as definições de
+layout não irão ocupar as áreas nas extremidades, se for apenas uma coloração isso pode ser configurado de acordo com o
+background que está no arquivo manifest, mas se esitvermos utilizando uma imagem por exemplo, será necessário algumas
+definições adicionais para a solução do problema, como a inclusão da propriedade viewport-fit=cover na metatag viewport.
+
+- Já a Apple possui muitas metatags disponíveis para web apps antes do web app manifest spec ser criado.
+
+- Não adicione nenhuma metatag que você não conheca caso você não saiba o que ela faz.
+
+- Uma dessas metatags por exemplo é a apple-mobile-web-app-status-bar-style, pois é possível definir a cor que terá a
+barra de status da PWA, configurando como translucida, ela ocupará todos os espaço disponíveis com uma transparência. Ex:
+    "<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">"
+
+- Uma dica é usar a View Transition API para transições entre as páginas, mesmo que ela seja uma SPA ou MPA, a transição
+entre as páginas torna a interação mais fluida e com aparência de ser nativo no aplicativo.
+
+- Sobre Custom Install Promotion:
+    - É baseada no beforeinstallprompt event;
+    - Precisamos aguardar pelo evento;
+
+    - Podemos escondr a promoção se:
+        - O usuário não estiver no modo browser display;
+        - Você já sabe que o app está instalado;
+        - Você conhece uma alternativa para o app instalado;
+
+    - Quando o evento não é iniciado, podemos:
+        - Esconder a promoção;
+        - Criar um fallback para as intruções.
+
+- É possível definir como critérios dos media queries o modo de display, podendo ser:
+    - display-mode: browser;
+    - display-mode: standalone;
+    - display-mode: fullscreen;
+    - display-mode: minimal-ui;
+
+- A propriedade Hidden vem por default no CSS, ela permite esconder ou mostrar elementos sem a necessidade de criar uma
+classe especifíca para isso, porém, é comum existir conflitos com os modos de display nos elementos que estamos usando
+a propriedade, assim, o operador ":not(elemento[hidden])" ajuda a solucionar o problema pois aplica os estilos definidos
+apenas quando o elemento não for "Hidden".
+
+- O Native Package renderiza o browser em tempo de execução no modo standalone que irá carregar o PWA da nuvem.
+    - É uma solução que permite que você crie um aplicativo nativo que carrega o PWA da nuvem, permitindo que você
+    tenha uma experiência de usuário semelhante a um aplicativo nativo, mas com a flexibilidade de um PWA.
+
+- O Native App Launcher Packages, são usados para facilitar a inserção do PWA na sus respectivas lojas de aplicativos,
+    como a Play Store e a App Store, permitindo que você publique seu PWA como um aplicativo nativo.
+
+- Você pode criar através de IDEs Nativas, através da CLI ou através do PWA Builder.
+
+- O necessário é apenas seguir as regras de cada uma das lojas de aplicativos, como por exemplo, o tamanho do ícone,
+o nome do aplicativo, a descrição, as capturas de tela, entre outros.
+
+- Também seguir as definições dos respectivos sistemas operacionais, como por exemplo, o Android e o iOS, que possuem
+suas próprias regras e definições para aplicativos nativos.
+
+- Não são todos os PWA que podem ser publicados em lojas de aplicativos, verifique sempre as regras e os requerimentos
+de cada loja de aplicativos antes de tentar publicar seu PWA.
+
+
+
+
+
+
+
+
+
+
+

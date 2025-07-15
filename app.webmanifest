@@ -1,0 +1,42 @@
+{
+    "id": "/",
+    "start_url": "/",
+    "scope": "/",
+    "name": "CodepadMasters, the best notepad for your device",
+    "short_name": "CodepadMasters",
+    "display": "standalone",
+    "theme_color": "#55887c",
+    "description": "The best notepad app for taking notes while doing FrontEnd Masters Courses.",
+    "screenshots": [
+        {
+        "src" : "screenshot.png",
+        "sizes": "760x548",
+        "type": "image/png",
+        "form_factor": "wide"
+        },
+        {
+        "src" : "screenshot.png",
+        "sizes": "760x548",
+        "type": "image/png",
+        "form_factor": "narrow"
+        }
+    ],
+    "icons": [
+        {
+            "src": "icons/maskable_icon.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/icon-1024.png",
+            "sizes": "1024x1024",
+            "type": "image/png"
+        }
+    ]
+}

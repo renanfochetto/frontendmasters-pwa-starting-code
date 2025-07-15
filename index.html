@@ -4,7 +4,12 @@
     <meta name="viewport" content="width=device-width">
     <title>Store notes and learning goals while you are coding</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="app.js"></script>    
+    <script src="app.js"></script>
+    <link rel="manifest" href="app.webmanifest">
+    <script async src="https://unpkg.com/pwacompat" crossorigin="anonymous"></script>
+    <script>
+        navigator.serviceWorker.register("serviceWorker.js");
+    </script>
 </head>
 
 <body>
@@ -25,6 +30,9 @@
             <button id="btnLearn">
                 <span class="icon">school</span>                
                 Learn                 
+            </button>
+            <button id="btnInstall">
+                Install
             </button>
         </li>
     </ul>
